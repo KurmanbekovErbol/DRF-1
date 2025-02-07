@@ -42,9 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'django_filters',
 
     'apps.main',
+    'apps.users',
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -86,6 +90,17 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default':{
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'DRF',
+#         'USER': 'DRF',
+#         'PASSWORD': '12345678',
+#         'HOST': 'localhost',
+#         'PORT': '5432'
+#     }
+# }
 
 
 # Password validation
@@ -133,3 +148,5 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'users.User'

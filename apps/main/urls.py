@@ -1,6 +1,9 @@
-from django.urls import path
-from apps.main.views import CreatSettingsView
+from rest_framework.routers import DefaultRouter
+from apps.main.views import ProductMixins, СharacteristicAPI
 
-urlpatterns = [
-    path("settings/create/", CreatSettingsView.as_view(), name="settings_create")
-]
+router = DefaultRouter()
+
+router.register(r'products', ProductMixins, basename='product')
+router.register(r'characteristic', СharacteristicAPI, basename='api_characteristic')
+
+urlpatterns = router.urls
